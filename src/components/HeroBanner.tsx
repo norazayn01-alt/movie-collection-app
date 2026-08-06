@@ -1,5 +1,5 @@
 import type { Movie } from "../types/movie";
-import { Button,Group } from "@mantine/core";
+import { Button, Group } from "@mantine/core";
 
 export interface HeroBannerProps {
   movie: Movie;
@@ -7,7 +7,15 @@ export interface HeroBannerProps {
 
 export function HeroBanner({ movie }: HeroBannerProps) {
   return (
-    <div style={{ position: "relative", minHeight: "80vh" }}>
+    <div
+      style={{
+        position: "relative",
+        minHeight: "70vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+      }}
+    >
       <img
         src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
         alt={movie.title}
@@ -40,8 +48,8 @@ export function HeroBanner({ movie }: HeroBannerProps) {
           {movie.overview}
         </p>
         <Group mt={20}>
-          <Button variant="outline">Watch Now</Button>
-          <Button variant="default">Watch Trailer</Button>
+          <Button variant="default">Watch Now</Button>
+          <Button variant="outline">Watch Trailer</Button>
         </Group>
       </div>
     </div>

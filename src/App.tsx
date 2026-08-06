@@ -4,6 +4,7 @@ import {
   useTopRatedMovies,
 } from "./hooks/useMovies";
 import { MovieRow } from "./components/MovieRow";
+import { Navbar } from "./components/Navbar";
 import { HeroBanner } from "./components/HeroBanner";
 
 function App() {
@@ -28,7 +29,8 @@ function App() {
 
   return (
     <div>
-      {data && <HeroBanner movie={data[1]} />}
+      <Navbar/>
+      {data && <HeroBanner movie={data[5]} />}
       {data && <MovieRow title="Trending Now" movies={data} />}
       {nowPlayingData && (
         <MovieRow title="Latest Releases" movies={nowPlayingData} />
