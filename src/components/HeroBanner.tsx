@@ -1,4 +1,5 @@
 import type { Movie } from "../types/movie";
+import { Button,Group } from "@mantine/core";
 
 export interface HeroBannerProps {
   movie: Movie;
@@ -6,7 +7,7 @@ export interface HeroBannerProps {
 
 export function HeroBanner({ movie }: HeroBannerProps) {
   return (
-    <div style={{ position: "relative", minHeight: "70vh"}}>
+    <div style={{ position: "relative", minHeight: "80vh" }}>
       <img
         src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
         alt={movie.title}
@@ -31,9 +32,17 @@ export function HeroBanner({ movie }: HeroBannerProps) {
             "linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2))",
         }}
       ></div>
-      <div style={{ position: "relative", padding: 20, color: 'white'}}>
-        <h1 style={{ margin: 0 , fontSize: 48 , fontWeight: 700}}>{movie.title}</h1>
-        <p style={{ margin: 0 , fontSize: 18, fontWeight: 400}}>{movie.overview}</p>
+      <div style={{ position: "relative", padding: 20, color: "white" }}>
+        <h1 style={{ margin: 0, fontSize: 48, fontWeight: 700 }}>
+          {movie.title}
+        </h1>
+        <p style={{ margin: 0, fontSize: 18, fontWeight: 400 }}>
+          {movie.overview}
+        </p>
+        <Group mt={20}>
+          <Button variant="outline">Watch Now</Button>
+          <Button variant="default">Watch Trailer</Button>
+        </Group>
       </div>
     </div>
   );
