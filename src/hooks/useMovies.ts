@@ -10,3 +10,21 @@ export function useTrendingMovies() {
   });
   return { data, isError, isLoading };
 }
+
+export function useNowPlayingMovies() {
+  const { data, isLoading, isError } = useQuery<Movie[]>({
+    queryKey: ["now-playing-movies"],
+    queryFn: () =>
+      tmdbApi.get("/movie/now_playing").then((res) => res.data.results),
+  });
+  return { data, isLoading, isError };
+}
+
+export function useTopRatedMovies() {
+  const { data, isLoading, isError } = useQuery<Movie[]>({
+    queryKey: ["top-rated-movies"],
+    queryFn: () =>
+      tmdbApi.get("/movie/top_rated").then((res) => res.data.results),
+  });
+  return { data, isLoading, isError };
+}
