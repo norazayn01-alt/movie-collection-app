@@ -5,5 +5,13 @@ export interface MovieCardProps {
 }
 
 export function MovieCard({ movie }: MovieCardProps) {
-  return <h3>{movie.title}</h3>;
+  return (
+    <div>
+      <img
+        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+        alt={movie.title}
+      />
+      <h3>{movie.title}</h3>
+    </div>
+  );
 }
