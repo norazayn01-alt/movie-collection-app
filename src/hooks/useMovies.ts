@@ -31,8 +31,17 @@ export function useTopRatedMovies() {
 
 export function useUpcomingMovies() {
   const { data, isLoading, isError } = useQuery<Movie[]>({
-    queryKey: ['upcoming-movies'],
-    queryFn: () => tmdbApi.get('/movie/upcoming').then(res => res.data.results),
-  })
-  return {data, isLoading, isError}
+    queryKey: ["upcoming-movies"],
+    queryFn: () =>
+      tmdbApi.get("/movie/upcoming").then((res) => res.data.results),
+  });
+  return { data, isLoading, isError };
+}
+
+export function useMovieDetail(id: string) {
+  const { data, isLoading, isError } = useQuery<Movie>({
+    queryKey: ["movie-detail", id],
+    queryFn: () => tmdbApi.get(`/movie/${id}`).then((res) => res.data),
+  });
+  return { data, isLoading, isError };
 }
