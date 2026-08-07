@@ -1,6 +1,5 @@
 import { Group, Button } from "@mantine/core";
 
-
 export function Navbar() {
   return (
     <Group
@@ -14,11 +13,33 @@ export function Navbar() {
         zIndex: 1,
       }}
     >
-      <h3 style={{color: 'white'}}>MoViE</h3>
+      <h3 style={{ color: "white" }}>
+        <span style={{ color: "#E50914" }}>MoV</span>iE
+      </h3>
 
       <Group>
-        <Button>Login</Button>
-        <Button>Sign Up</Button>
+        <Button
+          styles={{
+            root: {
+              "&:hover": {
+                backgroundColor: "#E50914",
+              },
+            },
+          }}
+        >
+          Login
+        </Button>
+        <Button
+          styles={{
+            root: {
+              "&:hover": {
+                backgroundColor: "#E50914",
+              },
+            },
+          }}
+        >
+          Sign Up
+        </Button>
       </Group>
     </Group>
   );

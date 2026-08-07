@@ -50,7 +50,7 @@ export function HeroBanner({ movie }: HeroBannerProps) {
           {movie.overview}
         </p>
         <Group mt={20}>
-          <Button variant="default">Watch Now</Button>
+          <Button variant="filled">Watch Now</Button>
           <Button variant="outline">Watch Trailer</Button>
         </Group>
       </div>
