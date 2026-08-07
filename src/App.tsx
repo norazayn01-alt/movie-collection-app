@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <Navbar/>
-      {data && <HeroBanner movie={data[5]} />}
+      {data && <HeroBanner movie={data[1]} />}
       {data && <MovieRow title="Trending Now" movies={data} />}
       {nowPlayingData && (
         <MovieRow title="Latest Releases" movies={nowPlayingData} />

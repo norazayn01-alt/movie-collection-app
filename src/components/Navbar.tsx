@@ -1,19 +1,25 @@
 import { Group, Button } from "@mantine/core";
+import { noop } from "@tanstack/react-query";
 
 export function Navbar() {
   return (
-    <div>
-      <Group justify="space-between">
-        <img
-          style={{ width: 54, height: 54 }}
-          src="./src/assets/logo.webp"
-          alt="logo"
-        />
-        <Group>
-          <Button>Login</Button>
-          <Button>Sign Up</Button>
-        </Group>
+    <Group
+      justify="space-between"
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        padding: 20,
+        zIndex: 1,
+      }}
+    >
+      <h3 style={{color: 'white'}}>MoViE</h3>
+
+      <Group>
+        <Button>Login</Button>
+        <Button>Sign Up</Button>
       </Group>
-    </div>
+    </Group>
   );
 }
