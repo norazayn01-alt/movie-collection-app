@@ -28,3 +28,11 @@ export function useTopRatedMovies() {
   });
   return { data, isLoading, isError };
 }
+
+export function useUpcomingMovies() {
+  const { data, isLoading, isError } = useQuery<Movie[]>({
+    queryKey: ['upcoming-movies'],
+    queryFn: () => tmdbApi.get('/movie/upcoming').then(res => res.data.results),
+  })
+  return {data, isLoading, isError}
+}

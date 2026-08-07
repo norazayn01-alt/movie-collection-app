@@ -2,6 +2,7 @@ import {
   useTrendingMovies,
   useNowPlayingMovies,
   useTopRatedMovies,
+  useUpcomingMovies,
 } from "./hooks/useMovies";
 import { MovieRow } from "./components/MovieRow";
 import { Navbar } from "./components/Navbar";
@@ -19,11 +20,12 @@ function App() {
     isLoading: isTopRatedLoading,
     isError: isTopRatedError,
   } = useTopRatedMovies();
-  if (isLoading || isNowPlayingLoading || isTopRatedLoading) {
+  const {data: upcomingMoviesData, isLoading: isUpcomingMoviesLoading, isError: isUpcomingMoviesError} = useUpcomingMovies()
+  if (isLoading || isNowPlayingLoading || isTopRatedLoading || isUpcomingMoviesLoading) {
     return <p>Yuklanmoqda...</p>;
   }
 
-  if (isError || isNowPlayingError || isTopRatedError) {
+  if (isError || isNowPlayingError || isTopRatedError || isUpcomingMoviesError) {
     return <p>Xatolik yuz berdi.</p>;
   }
 
@@ -36,6 +38,7 @@ function App() {
         <MovieRow title="Latest Releases" movies={nowPlayingData} />
       )}
       {topRatedData && <MovieRow title="Top Rated" movies={topRatedData} />}
+      {upcomingMoviesData && <MovieRow title="Exclusive Shows" movies={upcomingMoviesData}/>}
     </div>
   );
 }

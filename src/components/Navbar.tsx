@@ -1,5 +1,5 @@
 import { Group, Button } from "@mantine/core";
-import { noop } from "@tanstack/react-query";
+
 
 export function Navbar() {
   return (
