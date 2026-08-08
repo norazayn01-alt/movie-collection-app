@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useMovieDetail } from "../../hooks/useMovies";
 import { Button, Group } from "@mantine/core";
 import { Navbar } from "../Navbar";
+import { Star } from "lucide-react";
 
 export function MovieDetail() {
   const { id } = useParams();
@@ -15,7 +16,13 @@ export function MovieDetail() {
   }
   return (
     <div
-        style={{position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+      }}
     >
       <img
         src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`}
@@ -46,6 +53,20 @@ export function MovieDetail() {
         <h1 style={{ margin: 0, fontSize: 48, fontWeight: 700 }}>
           {data.title}
         </h1>
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            margin: "8px 0",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            <Star size={18} color="orange" fill="orange" />
+            {data.vote_average.toFixed(1)}
+          </span>
+          <span>{data.release_date}</span>
+        </p>
         <p style={{ margin: 0, fontSize: 18, fontWeight: 400 }}>
           {data.overview}
         </p>
