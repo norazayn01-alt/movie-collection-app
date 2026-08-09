@@ -12,7 +12,7 @@ export function MovieDetail() {
     return <p>Yuklanmoqda...</p>;
   }
   if (isError) {
-    return <p>Film topilmadi...</p>;
+    return <p>Film topilmadiyoooov...</p>;
   }
   return (
     <div
