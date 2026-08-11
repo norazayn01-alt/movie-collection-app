@@ -8,12 +8,21 @@ export interface MovieCardProps {
 
 export function MovieCard({ movie }: MovieCardProps) {
   return (
-    <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit'}}>
-      <div style={{ flexShrink: 0, width: 170, }}>
+    <Link
+      to={`/movie/${movie.id}`}
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <div
+        style={{
+          flexShrink: 0,
+          width: 170,
+          overflow: "hidden",
+        }}
+      >
         <img
           src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
           alt={movie.title}
-          style={{ width: "100%" }}
+          style={{ width: "100%", borderRadius: 10 }}
         />
         <h3>{movie.title}</h3>
         <p style={{ display: "flex", alignItems: "center", gap: 4 }}>
