@@ -7,6 +7,7 @@ import {
 import { HeroBanner } from "../HeroBanner";
 import { MovieRow } from "../MovieRow";
 import { Navbar } from "../Navbar";
+import { Loader } from "lucide-react";
 
 export function Home() {
   const { data, isLoading, isError } = useTrendingMovies();
@@ -31,7 +32,18 @@ export function Home() {
     isTopRatedLoading ||
     isUpcomingMoviesLoading
   ) {
-    return <p>Yuklanmoqda...</p>;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Loader color="white" size={48} className="spin" />
+      </div>
+    );
   }
 
   if (
@@ -45,7 +57,7 @@ export function Home() {
   return (
     <div>
       <Navbar />
-      {data && <HeroBanner movie={data[1]} />}
+      {data && <HeroBanner movie={data[0]} />}
       {data && <MovieRow title="Trending Now" movies={data} />}
       {nowPlayingData && (
         <MovieRow title="Latest Releases" movies={nowPlayingData} />

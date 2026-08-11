@@ -9,7 +9,7 @@ export interface MovieCardProps {
 export function MovieCard({ movie }: MovieCardProps) {
   return (
     <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none', color: 'inherit'}}>
-      <div style={{ flexShrink: 0, width: 200 }}>
+      <div style={{ flexShrink: 0, width: 170, }}>
         <img
           src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
           alt={movie.title}

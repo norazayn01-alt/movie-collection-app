@@ -5,6 +5,8 @@ import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
+import "@mantine/core/styles.css";
+import "./index.css"; 
 
 const queryClient = new QueryClient();
 

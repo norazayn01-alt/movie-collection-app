@@ -2,14 +2,25 @@ import { useParams } from "react-router-dom";
 import { useMovieDetail } from "../../hooks/useMovies";
 import { Button, Group } from "@mantine/core";
 import { Navbar } from "../Navbar";
-import { Star } from "lucide-react";
+import { Loader, Star } from "lucide-react";
 
 export function MovieDetail() {
   const { id } = useParams();
   const { data, isLoading, isError } = useMovieDetail(id);
 
   if (isLoading) {
-    return <p>Yuklanmoqda...</p>;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Loader color="white" size={48} className="spin" />
+      </div>
+    );
   }
   if (isError) {
     return <p>Film topilmadiyoooov...</p>;
