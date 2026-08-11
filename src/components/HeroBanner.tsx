@@ -11,7 +11,7 @@ export function HeroBanner({ movie }: HeroBannerProps) {
     <div
       style={{
         position: "relative",
-        minHeight: "70vh",
+        minHeight: "80vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
