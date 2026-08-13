@@ -2,6 +2,7 @@ import { Group, Button } from "@mantine/core";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextInput } from "@mantine/core";
+import { Search } from "lucide-react";
 
 export function Navbar() {
   const [query, setQuery] = useState("");
@@ -24,11 +25,21 @@ export function Navbar() {
       <TextInput
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search movies..."
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             navigate(`/search?query=${query}`);
           }
+        }}
+        placeholder="Search movies..."
+        leftSection={<Search size={16} color="white" />}
+        radius="xl"
+        styles={{
+          input: {
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            color: "white",
+            width: 700
+          },
         }}
       />
       <Group>
