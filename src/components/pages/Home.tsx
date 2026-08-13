@@ -57,7 +57,7 @@ export function Home() {
   return (
     <div>
       <Navbar />
-      {data && <HeroBanner movie={data[0]} />}
+      {data && <HeroBanner movie={data[1]} />}
       {data && <MovieRow title="Trending Now" movies={data} />}
       {nowPlayingData && (
         <MovieRow title="Latest Releases" movies={nowPlayingData} />
