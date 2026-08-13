@@ -3,10 +3,15 @@ import { useMovieDetail } from "../../hooks/useMovies";
 import { Button, Group } from "@mantine/core";
 import { Navbar } from "../Navbar";
 import { Loader, Star } from "lucide-react";
+import { useState } from "react";
+import { Modal } from "@mantine/core";
+import { useMovieVideos } from "../../hooks/useMovies";
 
 export function MovieDetail() {
   const { id } = useParams();
   const { data, isLoading, isError } = useMovieDetail(id);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { data: videos } = useMovieVideos(id);
 
   if (isLoading) {
     return (
@@ -83,9 +88,32 @@ export function MovieDetail() {
         </p>
         <Group mt={20}>
           <Button variant="filled">Watch Now</Button>
-          <Button variant="outline">Watch Trailer</Button>
+          <Button variant="outline" onClick={() => setIsModalOpen(true)}>
+            Watch Trailer
+          </Button>
         </Group>
       </div>
+      <Modal
+        opened={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        size="xl"
+        title="Trailer"
+        overlayProps={{
+    backgroundOpacity: 0.55,
+    blur: 3,
+  }}
+      >
+        {videos && videos[0] && (
+          <iframe
+            width="100%"
+            height="400"
+            src={`https://www.youtube.com/embed/${videos[0].key}?modestbranding=1&rel=0`}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            style={{ border: "none" }}
+          />
+        )}
+      </Modal>
     </div>
   );
 }
