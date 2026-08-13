@@ -35,10 +35,12 @@ export function Navbar() {
         radius="xl"
         styles={{
           input: {
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
+            backgroundColor: "rgba(255, 255, 255, 0.15)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            border: "1px solid rgba(255, 255, 255, 0.25)",
             color: "white",
-            width: 700
+            width: 600
           },
         }}
       />
