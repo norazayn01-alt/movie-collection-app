@@ -45,3 +45,14 @@ export function useMovieDetail(id: string) {
   });
   return { data, isLoading, isError };
 }
+
+export function useSearchMovies(query: string) {
+  const { data, isLoading, isError } = useQuery<Movie[]>({
+    queryKey: ["search-movies", query],
+    queryFn: () =>
+      tmdbApi
+        .get("/search/movie", { params: { query } })
+        .then((res) => res.data.results),
+  });
+  return { data, isLoading, isError };
+}
