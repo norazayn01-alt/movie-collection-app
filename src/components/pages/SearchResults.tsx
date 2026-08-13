@@ -1,8 +1,9 @@
 import { useSearchParams } from "react-router-dom";
 import { Navbar } from "../Navbar";
 import { useSearchMovies } from "../../hooks/useMovies";
-import { MovieRow } from "../MovieRow";
+import { SimpleGrid } from "@mantine/core";
 import { Loader } from "lucide-react";
+import { MovieCard } from "../MovieCard";
 
 export function SearchResults() {
   const [SearchParams] = useSearchParams();
@@ -27,9 +28,13 @@ export function SearchResults() {
     return <p>Film topilmadi...</p>;
   }
   return (
-    <div>
+    <div style={{ paddingTop: 100, padding: "100px 20px 20px" }}>
       <Navbar />
-      {data && <MovieRow title={`Natijalar: "${query}"`} movies={data} />}
+      <h2 style={{ color: "white" }}>Natijalar: "{query}"</h2>
+      <SimpleGrid cols={{ base: 2, sm: 3, md: 5 }} spacing="lg">
+        {data &&
+          data.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+      </SimpleGrid>
     </div>
   );
 }
